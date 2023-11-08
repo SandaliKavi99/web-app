@@ -1,0 +1,26 @@
+.innerContainer1{
+    position: relative;
+    top: 60px;
+    left: 48px;
+    width: 346px;
+    height: 355px;
+   
+    /* justify-content: center; */
+}
+
+.signIn{
+    position: relative;
+    top: 34px;
+}
+
+.SignUpForm{
+    position: absolute;
+    border: 1px solid #3d3c3c;
+    border-radius: 10px;
+    width: 450px;
+    left: 551px;
+    top: 150px;
+    justify-content: center !important;
+    text-align: center !important;
+    background-color: #bcb7b7;
+}
