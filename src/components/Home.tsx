@@ -13,6 +13,7 @@ export default function Home(){
 
     return(
         <div>
+            <div ></div>
             <h2>Welcome {username} !</h2>
 
             <button onClick={loadLogout}>Logout</button>

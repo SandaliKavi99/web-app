@@ -36,7 +36,7 @@ export default function Login(){
   
     return (
       <div>
-        <div className='SignUpForm'>
+        {/* <div className='SignUpForm'>
           <h3 className='signIn'>Sign In</h3>
           <div className='innerContainer1'>
           {error && <div className="alert alert-danger">{error}</div>}
@@ -74,7 +74,69 @@ export default function Login(){
               </div>
             </form>
           </div>
-        </div>
+        </div> */}
+
+
+
+
+
+<section className="vh-100">
+  <div className="container py-5 h-100">
+    <div className="row d-flex align-items-center justify-content-center h-100">
+      <div className="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          className="img-fluid" alt="Phone image"></img>
+      </div>
+
+      <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form onSubmit={handleLogin}>
+        {error && <div className="alert alert-danger" id="displayError">*** {error}</div>}
+
+          <div className="form-outline mb-4">
+            <input  type="text"
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    setError(null); // Clear error when typing
+                  }} className="form-control form-control-lg" />
+            <label className="form-label">Email address</label>
+          </div>
+
+       
+          <div className="form-outline mb-4">
+            <input  type="password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError(null); // Clear error when typing
+                  }} className="form-control form-control-lg" />
+
+
+            <label className="form-label">Password</label>
+          </div>
+
+        
+
+         
+          <button type="submit" className="btn btn-primary btn-lg btn-block">Sign in</button>
+
+          
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     );
   
