@@ -30,6 +30,9 @@ export default function Login() {
 
     const result = await loginUser(username, password);
 
+    console.log(result);
+    
+
     if (result?.message === 'success') {
       login({
         id: result.data.Id,
@@ -38,7 +41,7 @@ export default function Login() {
         token: result.data.Token
       })
     } else {
-      setError('Invalid username or password');
+      setError(result?.message);
     }
   };
 
