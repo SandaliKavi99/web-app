@@ -13,7 +13,7 @@ export default function Login(){
     const handleLogin = (e: React.FormEvent) => {
       e.preventDefault();
   
-      // Basic validations
+    
       if (!username.trim()) {
         setError('Username cannot be empty');
         return;
@@ -24,12 +24,9 @@ export default function Login(){
         return;
       }
   
-      // Check if username and password are correct for demo purposes
       if (username === 'admin' && password === 'password') {
-        // Successful login, navigate to home page
         navigate(`/home/${username}`);
       } else {
-        // Invalid username or password
         setError('Invalid username or password');
       }
     };
@@ -55,9 +52,14 @@ export default function Login(){
                         <input  type="text"
                               onChange={(e) => {
                                 setUsername(e.target.value);
-                                setError(null); // Clear error when typing
-                              }} className="form-control form-control-lg" />
-                        <label className="form-label">UserName</label>
+                                setError(null); 
+                              }} className={"form-control form-control-lg ${username ? '.active' : ''} "}/>
+                        <label className={"form-label"}>UserName</label>
+                        <div className="form-notch">
+                          <div className="form-notch-leading" style={{ width: '9px' }}></div>
+                          <div className="form-notch-middle" style={{ width: '68px' }}></div>
+                          <div className="form-notch-trailing"></div>
+                        </div>
                       </div>
 
                   
@@ -65,11 +67,16 @@ export default function Login(){
                         <input  type="password"
                               onChange={(e) => {
                                 setPassword(e.target.value);
-                                setError(null); // Clear error when typing
+                                setError(null); 
                               }} className="form-control form-control-lg" />
 
 
                         <label className="form-label">Password</label>
+                        <div className="form-notch">
+                          <div className="form-notch-leading" style={{ width: '9px' }}></div>
+                          <div className="form-notch-middle" style={{ width: '68px' }}></div>
+                          <div className="form-notch-trailing"></div>
+                        </div>
                       </div>
 
                     
