@@ -1,26 +1,21 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import '../css/login.css';
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-/>
+import { useAuth } from '../appContexts';
+import { Navigate } from 'react-router-dom';
+import '../css/home.css'
 
-export default function Home(){
-    const { username } = useParams<{ username: string }>();
-    const navigate = useNavigate();
+export default function Home() {
 
-    const loadLogout=()=>{
-        navigate("/");
-    }
+    const { isLoggedIn, user, logout } = useAuth();
 
+    if (!isLoggedIn) return <Navigate to="/login" />
 
-    return(
-        <div>
-            <div className='welcome'>
-                <h2>Welcome {username} !</h2>
-                <button type="button" id="logoutBtn" className="btn btn-primary btn-lg btn-block" onClick={loadLogout}> <i className="fas fa-sign-out-alt"></i> Logout</button>
+    return (
+        <div className='container'>
+            <div className="user">
+                <h5>Welcome!</h5>
+                <h1>{user?.name}</h1>
+                <p>{user?.email}</p>
+                <button id="logoutBtn" className="btn btn-primary btn-lg btn-block" onClick={logout}>Logout</button>
             </div>
         </div>
     )
