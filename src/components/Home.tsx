@@ -1,22 +1,21 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../appContexts';
+import { Navigate } from 'react-router-dom';
+import '../css/home.css'
 
-export default function Home(){
-    const { username } = useParams<{ username: string }>();
-    const navigate = useNavigate();
+export default function Home() {
 
-    const loadLogout=()=>{
-        navigate("/");
-    }
+    const { isLoggedIn, user, logout } = useAuth();
 
+    if (!isLoggedIn) return <Navigate to="/login" />
 
-    return(
-        <div>
-            <div ></div>
-            <h2>Welcome {username} !</h2>
-
-            <button onClick={loadLogout}>Logout</button>
+    return (
+        <div className='container'>
+            <div className="user">
+                <h5>Welcome!</h5>
+                <h1>{user?.name}</h1>
+                <p>{user?.email}</p>
+                <button onClick={logout}>Logout</button>
+            </div>
         </div>
     )
 }
